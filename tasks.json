@@ -1,0 +1,64 @@
+{
+      "version": "2.0.0",
+      "tasks": [
+        {
+            "label": "Push code",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/push.sh ${workspaceFolder}",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Set mode: TDD",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/changeMode.sh ${workspaceFolder} tdd",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Set mode: TCR",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/changeMode.sh ${workspaceFolder} tcr",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Set mode: normal",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/changeMode.sh ${workspaceFolder} normal",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        }
+    ]
+    }
