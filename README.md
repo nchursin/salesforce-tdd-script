@@ -1,9 +1,10 @@
 ## How to start
 1. Copy shell scripts to your `.vscode` folder
-1. Make sure they are executable (`x` permission in Linux and MacOS)
-1. Copy tasks from the `tasks.json` to your `.vscode/tasks.json`
-1. Optionally set up the keybinding below
-1. Enjoy!
+2. Change the tests to un in the `push.sh` script
+3. Make sure they are executable (`x` permission in Linux and MacOS)
+4. Copy tasks from the `tasks.json` to your `.vscode/tasks.json`
+5. Optionally set up the keybinding below
+6. Enjoy!
 
 JSON keybinding:
 ```json
