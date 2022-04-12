@@ -26,14 +26,27 @@ if [[ $rc != 0 ]]; then
     exit $rc;
 fi
 
+TO_RUN=""
+TEST_LIST_FILE="$VSCODE_FOLDER/tests.list"
+if [ -f "$TEST_LIST_FILE" ]; then
+    tests=$(cat $TEST_LIST_FILE | grep -v '#' | paste -sd "," -)
+    TO_RUN="--tests $tests"
+fi
+
 if [[ 'tdd' = $DEV_MODE ]] || [[ 'tcr' = $DEV_MODE ]]; then
     sfdx force:apex:test:run \
-        -t Test_MockServer \
+        $TO_RUN \
         --codecoverage \
         --resultformat human \
         --outputdir "$WORKSPACE_FOLDER/.sfdx/tools/testresults/apex" \
         --loglevel error
     rc=$?
+
+    if [[ $rc != 0 ]]; then
+        echo "Tests RED!"
+    else
+        echo "Tests GREEN!"
+    fi
 
     if [[ 'tcr' = $DEV_MODE ]]; then
         if [[ $rc != 0 ]]; then
@@ -45,3 +58,5 @@ if [[ 'tdd' = $DEV_MODE ]] || [[ 'tcr' = $DEV_MODE ]]; then
         git commit -m '>>> TCR wip'
     fi
 fi
+
+echo "Sequence finished"
